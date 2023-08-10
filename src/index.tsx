@@ -3,29 +3,29 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
-import Todo from './todo/Todo';
-import SignUp from './signUp/SignUp';
-import SignIn from './signIn/SignIn';
+import ResetStyle from './ResetStyle';
 import ErrorPage from './pages/ErrorPage';
+import SignUpPage from './pages/SignUpPage';
+import SignInPage from './pages/SignInPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <SignIn />,
+    element: <SignInPage />,
     errorElement: <ErrorPage />,
   },
   {
     path: 'signup',
-    element: <SignUp />,
+    element: <SignUpPage />,
   },
   {
     path: 'signin',
-    element: <SignIn />,
+    element: <SignInPage />,
   },
-  {
-    path: 'todo',
-    element: <Todo />,
-  },
+  // {
+  //   path: 'todo',
+  //   element: <Todo />,
+  // },
 ]);
 
 const root = ReactDOM.createRoot(
@@ -33,6 +33,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <ResetStyle />
     <RouterProvider router={router} />
   </React.StrictMode>
 );
