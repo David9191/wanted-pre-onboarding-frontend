@@ -1,28 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Header from '../components/Header';
-import { SignInStyle } from '../styledComponents/SignInStyle';
-
-interface User {
-  email: string;
-  password: string;
-  [key: string]: string;
-}
+import {
+  HeadingOne,
+  InputSignInUp,
+  LabelSignInUp,
+  SignInUpBlock,
+  ButtonSignInUp,
+  ButtonContainer,
+  SignInUpMainContainer,
+} from '../../styledComponents/SignInUpStyle';
+import { User } from '../../types/userTypes';
 
 const SignUp = () => {
   const [user, setUser] = useState<User>({ email: '', password: '' });
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const navigate = useNavigate();
 
-  // 얘네들은 나중에 react-router로 처리해보자.
   useEffect(() => {
     const isToken = localStorage.getItem('token');
 
     if (isToken) {
-      navigate('todo');
+      navigate('/todo');
     }
-  }, []);
+  }, [navigate]);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newUserInfo = { ...user };
@@ -42,10 +43,13 @@ const SignUp = () => {
         body: JSON.stringify(user),
       }
     );
+    const responseStatus = response.status;
 
-    alert(response.status);
-
-    navigate('/signin');
+    if (responseStatus === 200) {
+      navigate('/signin');
+    } else if (responseStatus === 401) {
+      alert('회원가입에 실패했습니다.');
+    }
   };
 
   useEffect(() => {
@@ -59,14 +63,14 @@ const SignUp = () => {
   }, [user]);
 
   return (
-    <>
-      <Header />
-      <SignInStyle>
-        <h1>회원가입</h1>
-        <label htmlFor='siginin-email' className='label-text'>
+    <SignInUpBlock>
+      <SignInUpMainContainer>
+        <HeadingOne>회원가입</HeadingOne>
+
+        <LabelSignInUp htmlFor='siginin-email' className='label-text'>
           이메일
-        </label>
-        <input
+        </LabelSignInUp>
+        <InputSignInUp
           type='text'
           id='siginin-email'
           data-testid='email-input'
@@ -75,10 +79,10 @@ const SignUp = () => {
           onChange={handleFormChange}
         />
 
-        <label htmlFor='siginin-password' className='label-text'>
+        <LabelSignInUp htmlFor='siginin-password' className='label-text'>
           비밀번호
-        </label>
-        <input
+        </LabelSignInUp>
+        <InputSignInUp
           type='password'
           id='siginin-password'
           data-testid='password-input'
@@ -87,16 +91,21 @@ const SignUp = () => {
           onChange={handleFormChange}
         />
 
-        <button
-          data-testid='signup-button'
-          className='singup-button'
-          disabled={buttonDisabled}
-          onClick={handleSignUp}
-        >
-          회원가입
-        </button>
-      </SignInStyle>
-    </>
+        <ButtonContainer>
+          <ButtonSignInUp
+            data-testid='signup-button'
+            className='singup-button'
+            disabled={buttonDisabled}
+            onClick={handleSignUp}
+            color='#fff'
+            backColor='#438BFF'
+            hoverColor='#2c5bf2'
+          >
+            회원가입
+          </ButtonSignInUp>
+        </ButtonContainer>
+      </SignInUpMainContainer>
+    </SignInUpBlock>
   );
 };
 
