@@ -1,16 +1,10 @@
-import React from 'react';
+import { HeaderDiv, HeadingOneHeader } from '../styledComponents/HeaderStyle';
 
 const Header = () => {
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '70px',
-        marginBottom: '50px',
-
-        backgroundColor: 'blue',
-      }}
-    ></div>
+    <HeaderDiv>
+      <HeadingOneHeader>원티드 인턴십 임지성</HeadingOneHeader>
+    </HeaderDiv>
   );
 };
 
