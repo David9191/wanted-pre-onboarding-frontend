@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
 import ResetStyle from './ResetStyle';
+import TodoPage from './pages/TodoPage';
 import ErrorPage from './pages/ErrorPage';
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'todo',
-    // element: <Todo />,
+    element: <TodoPage />,
   },
 ]);
 
