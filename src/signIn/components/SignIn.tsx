@@ -5,9 +5,11 @@ import {
   HeadingOne,
   InputSignInUp,
   LabelSignInUp,
-  SignInUpBlock,
   ButtonSignInUp,
   ButtonContainer,
+} from '../../styledComponents/CommonStyle';
+import {
+  SignInUpBlock,
   SignInUpMainContainer,
 } from '../../styledComponents/SignInUpStyle';
 import { User } from '../../types/userTypes';
