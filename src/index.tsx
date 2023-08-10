@@ -22,10 +22,10 @@ const router = createBrowserRouter([
     path: 'signin',
     element: <SignInPage />,
   },
-  // {
-  //   path: 'todo',
-  //   element: <Todo />,
-  // },
+  {
+    path: 'todo',
+    // element: <Todo />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(
