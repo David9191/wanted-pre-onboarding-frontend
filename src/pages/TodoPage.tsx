@@ -1,11 +1,11 @@
 import Header from '../components/Header';
-import Todo from '../todo/components/Todo';
+import TodoList from '../todo/components/TodoList';
 
 const TodoPage = () => {
   return (
     <>
       <Header />
-      <Todo />
+      <TodoList />
     </>
   );
 };
