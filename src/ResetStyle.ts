@@ -83,7 +83,6 @@ mark,
 audio,
 video,
 button,
-input[type='checkbox'],
 input[type='radio'] {
   margin: 0;
   padding: 0;
@@ -132,13 +131,6 @@ a {
 a:hover,
 a:active {
   text-decoration: none;
-}
-
-input { 
--webkit-appearance : none;
--moz-appearance:none;
-appearance:none;
-border: none;
 }
 
 input::-ms-clear { display:none;}
