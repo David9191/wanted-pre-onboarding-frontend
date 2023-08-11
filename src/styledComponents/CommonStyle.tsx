@@ -37,6 +37,7 @@ interface ButtonSignInUpProps {
   color?: string;
   backColor?: string;
   hoverColor?: string;
+  onClick?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 export const ButtonContainer = styled.div`
   display: flex;
